@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeoniX Sound | Master Booking</title>
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="calendar.html" class="float-btn">📅 Disponibilidad</a>
+        <div id="bcvRates" class="bcv-badge">Sincronizando BCV...</div>
+
+        <header>
+            <img src="assets/logo_studio.png" alt="LeoniX Logo" class="main-logo">
+            <h1>LeoniX Sound Studio</h1>
+            <p>PREMIUM AUDIO PRODUCTION</p>
+        </header>
+
+        <form id="bookingForm">
+            <div class="glass-section">
+                <label>Nombre / Banda</label>
+                <input type="text" id="nombre" placeholder="Nombre Artístico" required>
+                
+                <label>Servicio Principal</label>
+                <select id="categoriaServicio" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Ensayo">Ensayo ($5/h)</option>
+                    <option value="Grabacion">Grabación (€15/h)</option>
+                    <option value="Edicion">Edición (€10/h)</option>
+                    <option value="Produccion">Producción Musical (€150+)</option>
+                </select>
+            </div>
+
+            <div id="sectionInstrumentos" class="hidden glass-section">
+                <label>INSTRUMENTOS ($5 C/U)</label>
+                <div id="instrumentContainer" class="qty-grid">
+                    <div class="qty-item"><span>Guit. Eléctrica</span><input type="number" class="inst-qty" data-name="Guit. Eléctrica" min="0" value="0"></div>
+                    <div class="qty-item"><span>Bajo</span><input type="number" class="inst-qty" data-name="Bajo" min="0" value="0"></div>
+                    <div class="qty-item"><span>Guit. Acústica</span><input type="number" class="inst-qty" data-name="Guit. Acústica" min="0" value="0"></div>
+                    <div class="qty-item"><span>Teclado</span><input type="number" class="inst-qty" data-name="Teclado" min="0" value="0"></div>
+                </div>
+                <button type="button" id="btnAddInstrument" class="btn-secondary">+ Añadir otro instrumento</button>
+            </div>
+
+            <div id="sectionSala" class="hidden glass-section">
+                <label>SERVICIOS DE SALA</label>
+                <div class="check-list">
+                    <div class="check-row"><span>CAJA + PLATOS <small>($5)</small></span><input type="checkbox" class="extra-calc" data-precio="5" data-curr="USD" value="Caja+Platos"></div>
+                    <div class="check-row"><span>GRABACIÓN ENSAYO <small>(€20)</small></span><input type="checkbox" class="extra-calc" data-precio="20" data-curr="EUR" value="Grab. Ensayo"></div>
+                    <div class="check-row"><span>TÉCNICO <small>($5/H)</small></span><input type="checkbox" class="extra-calc" data-precio="5" data-curr="USD" id="checkTecnico" value="Técnico"></div>
+                </div>
+            </div>
+
+            <div id="sectionProduccion" class="hidden glass-section">
+                <div class="info-alert">Esta sección es solo para cancelar sus paquetes de producción. Las pautas de grabación y edición se agendan por separado.</div>
+                <label>Paquetes de Producción (€)</label>
+                <div id="packageContainer">
+                    <div class="package-entry">
+                        <select class="prod-pkg-select">
+                            <option value="Estándar" data-precio="150">Paquete Estándar (€150)</option>
+                            <option value="Poeta" data-precio="200">El Poeta (€200)</option>
+                            <option value="Deluxe" data-precio="250">Deluxe (€250)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="btnAddPackage" class="btn-secondary">+ Añadir otro paquete</button>
+            </div>
+
+            <div class="grid-2">
+                <div class="input-group"><label id="labelFecha">Fecha de Cita</label><input type="date" id="fecha" required></div>
+                <div class="input-group" id="containerHora"><label>Hora Inicio</label><select id="hora" required disabled><option value="">---</option></select></div>
+            </div>
+
+            <div id="containerDuracion">
+                <label>Duración (Horas)</label>
+                <input type="number" id="duracionSesion" min="1" value="2">
+                <div id="availableLabel" class="info-text-small"></div>
+            </div>
+
+            <label>Abono / Porcentaje</label>
+            <select id="porcentajeAbono" required><option value="100%">100% (Pago Total)</option><option value="50%">50% (Reserva)</option></select>
+
+            <div class="price-neon-box">
+                <div id="totalUSD_EUR" class="divisa-text">Total: $0 / €0</div>
+                <div id="totalBS" class="bs-text">0,00 BS</div>
+                <div id="paymentNote" class="abono-badge">A PAGAR AHORA: 0,00 BS</div>
+            </div>
+
+            <label>Método de Pago</label>
+            <select id="viaPago" required><option value="">Seleccione...</option><option value="Transferencia">Transferencia Bancaria</option><option value="PagoMovil">Pago Móvil</option></select>
+            <div id="pagoInfo" class="neon-box"></div>
+
+            <div class="file-upload-wrapper">
+                <input type="file" id="comprobante" accept="image/*" required>
+                <label for="comprobante" class="file-upload-label" id="fileLabel"><span id="fileText">Seleccionar Capture del Pago</span></label>
+            </div>
+
+            <button type="submit" id="btnEnviar" disabled>Confirmar y Agendar</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

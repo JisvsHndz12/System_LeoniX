@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Calendar | LeoniX</title>
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar-style.css">
+</head>
+<body>
+    <div class="container compact-mode">
+        <header>
+            <img src="assets/logo_studio.png" alt="LeoniX" class="main-logo micro">
+            <h3>Disponibilidad</h3>
+        </header>
+        <div class="calendar-wrapper">
+            <div class="calendar-header">
+                <button id="prevMonth" class="btn-nav-small">&lt;</button>
+                <h4 id="monthDisplay">Cargando...</h4>
+                <button id="nextMonth" class="btn-nav-small">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+        <div id="dayDetails" class="hidden glass-section detail-box-compact">
+            <div id="hourList" class="hour-timeline-compact"></div>
+        </div>
+        <div class="footer-actions">
+            <a href="index.html" class="btn-secondary-small">Volver al Formulario</a>
+        </div>
+    </div>
+    <script src="calendar-logic.js"></script>
+</body>
+</html>
