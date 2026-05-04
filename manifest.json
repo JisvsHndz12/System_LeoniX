@@ -1,0 +1,17 @@
+{
+  "name": "LeoniX Sound Studio",
+  "short_name": "LeoniX",
+  "description": "Plataforma de Reservas LeoniX Sound",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#8a2be2",
+  "icons": [
+    {
+      "src": "assets/logo_studio.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
