@@ -4,7 +4,7 @@ body { background: var(--bg); color: #e0e0e0; font-family: 'Segoe UI', sans-seri
 .main-logo { max-width: 400px; width: 100%; display: block; margin: 0 auto 10px; filter: drop-shadow(0 0 15px var(--neon)); }
 .bcv-badge { background: var(--neon); color: white; padding: 12px; text-align: center; border-radius: 12px; font-weight: bold; margin-bottom: 25px; box-shadow: 0 0 15px var(--neon); }
 label { display: block; margin: 18px 0 6px; font-size: 0.75rem; font-weight: bold; color: #888; text-transform: uppercase; }
-input, select { width: 100%; padding: 14px; background: #1a1a1a; border: 1px solid #333; border-radius: 10px; color: white; outline: none; }
+input, select { width: 90%; padding: 14px; background: #1a1a1a; border: 1px solid #333; border-radius: 10px; color: white; outline: none; }
 .glass-section { background: var(--glass); padding: 15px; border-radius: 15px; border: 1px solid #222; margin: 15px 0; }
 .info-alert { background: rgba(138, 43, 226, 0.1); color: #ccc; padding: 12px; border-radius: 10px; border-left: 4px solid var(--neon); font-size: 0.8rem; margin-bottom: 10px; }
 
