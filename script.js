@@ -146,14 +146,29 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             await fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
 
+                        // ... (dentro de tu función después del fetch)
+
             let msj = `*RESERVA LEONIX SOUND*%0A*Cliente:* ${payload.nombre}%0A*Fecha:* ${payload.fecha} | ${payload.hora}%0A*Monto Total:* ${prec.totalBS.toLocaleString('es-VE')} BS%0A`;
             if (payload.porcentajePago === '50%') {
                 msj += `*Abono (50%):* ${prec.abonoBS.toLocaleString('es-VE')} BS%0A*Restante (50%):* ${prec.abonoBS.toLocaleString('es-VE')} BS (Pendiente el día de la pauta)%0A%0A_Comprobante guardado en la nube._`;
             } else {
-                msj += `*Estado:* PAGADO EN SU TOTALIDAD (100%)%0A*Monto Cancelado:* ${prec.totalBS.toLocaleString('es-VE')} BS%0A%0A_Comprobante verificado y guardado en la nube._`;
+                msj += `*Estado:* PAGADO EN SU TOTALIDAD (100%)%0A*Monto Cancelado:* ${prec.totalBS.toLocaleString('es-VE')} BS%0A%0A_Comprobante guardado en la nube._`;
             }
-            window.open(`https://wa.me/584167071648?text=${msj}`, '_blank');
-            location.reload();
+
+            // --- CAMBIO CLAVE AQUÍ ---
+            const urlWhatsApp = `https://wa.me/584167071648?text=${msj}`;
+
+            // 1. Usamos location.href en lugar de window.open (Mucho más estable en APK)
+            window.location.href = urlWhatsApp;
+
+            // 2. IMPORTANTE: Eliminamos el location.reload() inmediato. 
+            // Si necesitas limpiar el formulario, es mejor hacerlo manualmente o 
+            // esperar unos segundos antes de recargar.
+            setTimeout(() => {
+                // Esto solo ocurrirá si el usuario regresa a la app después de enviar el mensaje
+                console.log("Formulario enviado con éxito");
+                // location.reload(); // Solo descomenta si es estrictamente necesario, pero suele dar problemas en APK
+            }, 3000);
         };
     });
     document.addEventListener('input', calcular);
